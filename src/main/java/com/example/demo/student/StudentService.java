@@ -22,6 +22,7 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
+
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()) {
             throw new IllegalStateException("Email Taken");
